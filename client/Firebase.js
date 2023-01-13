@@ -1,7 +1,7 @@
 import firebase from 'firebase';
 import 'firebase/auth';
 import 'firebase/firestore';
-import firebaseConfig from '../config/secrets';
+// import firebaseConfig from '../config/secrets';
 
 const firebaseConfig = process.env.firebaseKey
   ? {
