@@ -24,9 +24,7 @@ module.exports = {
 		// fix "process is not defined" error:
 		// (do "npm install process" before running the build)
 		new webpack.ProvidePlugin({
-			'process.env': {
-				'NODE_ENV': '"production"'
-			}
+			process: 'process/browser'
 		})
 	]
 };
