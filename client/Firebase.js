@@ -1,16 +1,16 @@
 import firebase from 'firebase'
 import 'firebase/auth'
 import 'firebase/firestore'
-// import firebaseConfig from '../config/secrets';
+
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAkdgarx-rprW-Iz-jQNCBExB_ovag2uOM",
-  authDomain: "aether-73e50.firebaseapp.com",
-  projectId: "aether-73e50",
-  storageBucket: "aether-73e50.appspot.com",
-  messagingSenderId: "364494291741",
-  appId: "1:364494291741:web:0fad00dd32d023260417f4"
-};
+  apiKey: process.env.apiKey,
+  authDomain: process.env.authDomain,
+  projectId: process.env.projectId,
+  storageBucket: process.env.storageBucket,
+  messagingSenderId: process.env.messagingSenderId,
+  appId: process.env.appId,
+}
 
 // Initialize Firebase
 export const firebaseApp = firebase.initializeApp(firebaseConfig)
