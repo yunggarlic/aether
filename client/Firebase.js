@@ -1,9 +1,10 @@
-import firebase from 'firebase';
-import 'firebase/auth';
-import 'firebase/firestore';
+import firebase from 'firebase'
+import 'firebase/auth'
+import 'firebase/firestore'
 // import firebaseConfig from '../config/secrets';
 
-const firebaseConfig = process.env.apiKey
+
+const firebaseConfig = process.env
   ? {
       apiKey: process.env.apiKey,
       authDomain: process.env.authDomain,
@@ -13,20 +14,20 @@ const firebaseConfig = process.env.apiKey
       appId: process.env.appId,
       measurementId: process.env.measurementId,
     }
-  : '../config/secrets';
+  : '../config/secrets'
 
 // Initialize Firebase
-console.log('hello from firebase.js');
-export const firebaseApp = firebase.initializeApp(firebaseConfig);
-export const auth = firebase.auth();
-export const db = firebase.firestore();
-export const realtimeDB = firebase.database();
-firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
+console.log('hello from firebase.js')
+export const firebaseApp = firebase.initializeApp(firebaseConfig)
+export const auth = firebase.auth()
+export const db = firebase.firestore()
+export const realtimeDB = firebase.database()
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
 
-export const sceneRef = db.collection('Session');
+export const sceneRef = db.collection('Session')
 
 export const setScene = async () => {
-  console.log('uid-->', auth.currentUser.uid);
+  console.log('uid-->', auth.currentUser.uid)
   if (auth.currentUser) {
     return await sceneRef
       .doc(auth.currentUser.uid)
@@ -35,16 +36,16 @@ export const setScene = async () => {
         {
           scene: store.getState().instruments,
         },
-        { merge: true }
-      );
-  } else return console.log("you're not signed in, friend!");
-};
+        {merge: true}
+      )
+  } else return console.log("you're not signed in, friend!")
+}
 
 export const fetchScene = async () => {
-  const snapshot = await sceneRef.doc(auth.currentUser.uid).get();
+  const snapshot = await sceneRef.doc(auth.currentUser.uid).get()
   if (!snapshot.exists) {
-    console.log('No such document!');
+    console.log('No such document!')
   } else {
-    return await snapshot.data();
+    return await snapshot.data()
   }
-};
+}
