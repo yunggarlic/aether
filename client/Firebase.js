@@ -3,11 +3,9 @@ import 'firebase/auth';
 import 'firebase/firestore';
 // import firebaseConfig from '../config/secrets';
 
-console.log(process.env.firebaseKey)
-
-const firebaseConfig = process.env.firebaseKey
+const firebaseConfig = process.env.apiKey
   ? {
-      apiKey: process.env.firebaseKey,
+      apiKey: process.env.apiKey,
       authDomain: process.env.authDomain,
       projectId: process.env.projectId,
       storageBucket: process.env.storageBucket,
@@ -18,6 +16,7 @@ const firebaseConfig = process.env.firebaseKey
   : '../config/secrets';
 
 // Initialize Firebase
+console.log('hello from firebase.js');
 export const firebaseApp = firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
 export const db = firebase.firestore();
