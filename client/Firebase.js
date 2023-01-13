@@ -1,17 +1,19 @@
 import firebase from 'firebase';
 import 'firebase/auth';
 import 'firebase/firestore';
-// import firebaseConfig from '../config/secrets';
+import firebaseConfig from '../config/secrets';
 
-const firebaseConfig = {
-  apiKey: process.env.firebaseKey || 'AIzaSyAWVIxjZTaEY90wBDSxj1v7ECUUKyG7Vb0',
-  authDomain: process.env.authDomain || 'sound-collabo.firebaseapp.com',
-  projectId: process.env.projectId || 'sound-collabo',
-  storageBucket: process.env.storageBucket || 'sound-collabo.appspot.com',
-  messagingSenderId: process.env.messagingSenderId || '564645648142',
-  appId: process.env.appId || '1:564645648142:web:f0b8c196f95fd2b70c295f',
-  measurementId: process.env.measurementId || 'G-V44HEGZ64L',
-};
+const firebaseConfig = process.env.firebaseKey
+  ? {
+      apiKey: process.env.firebaseKey,
+      authDomain: process.env.authDomain,
+      projectId: process.env.projectId,
+      storageBucket: process.env.storageBucket,
+      messagingSenderId: process.env.messagingSenderId,
+      appId: process.env.appId,
+      measurementId: process.env.measurementId,
+    }
+  : '../config/secrets';
 
 // Initialize Firebase
 export const firebaseApp = firebase.initializeApp(firebaseConfig);
