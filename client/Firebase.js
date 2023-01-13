@@ -3,6 +3,8 @@ import 'firebase/auth';
 import 'firebase/firestore';
 // import firebaseConfig from '../config/secrets';
 
+console.log(process.env.firebaseKey)
+
 const firebaseConfig = process.env.firebaseKey
   ? {
       apiKey: process.env.firebaseKey,
