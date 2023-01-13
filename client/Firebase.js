@@ -17,7 +17,6 @@ const firebaseConfig = process.env
   : '../config/secrets'
 
 // Initialize Firebase
-console.log('hello from firebase.js')
 export const firebaseApp = firebase.initializeApp(firebaseConfig)
 export const auth = firebase.auth()
 export const db = firebase.firestore()
